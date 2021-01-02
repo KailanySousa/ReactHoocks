@@ -10,13 +10,19 @@ function calcFatorial(num) {
     return calcFatorial(n - 1) * n;
 }
 
+function verificarNumero(num) {
+    return ;
+}
+
 const UseEffect = (props) => {
 
     const [number, setNumber] = useState(0);
     const [fatorial, setFatorial] = useState(1);
+    const [status, setStatus] = useState('Par');
 
     useEffect(() => {
         setFatorial(calcFatorial(number))
+        setStatus(number % 2 === 0 ? 'Par' : 'Ímpar');
     }, [number])
 
     useEffect(() => {
@@ -39,6 +45,11 @@ const UseEffect = (props) => {
                     <span className="text">Fatorial:</span>
                     <span className="text red">{fatorial === -1 ? "Não existe" : fatorial} </span>
                 </div>
+            </div>
+
+            <SectionTitle title="Exercicio #02" />
+            <div className="center">
+                <span className="text red"> {status}</span>
             </div>
         </div>
     )
